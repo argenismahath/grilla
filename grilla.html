@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grilla</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+</head>
+<body>
+    <style>
+        #example {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            border: 1px solid black;
+            width: 100%;
+            height: 100vh;
+        }
+        #example div{
+            display: flex;
+            justify-content: center;
+
+            border: 1px solid black;
+        }
+        .double{
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            grid-template-rows: 1fr 1fr;
+        }
+
+        .bi{
+            font-size: 20px;
+        }
+    </style>
+
+    <section id="example">
+
+    </section>
+    
+
+    <script >
+        let fater= document.querySelector('#example');
+        for (let i = 0; i < 40; i++) {
+            let div = document.createElement('div');
+            if(i==29){
+                div.classList.add('double');
+                //añadir dos div
+                let div2 = document.createElement('div');
+                let div3 = document.createElement('div');
+
+                let adentro = [div2, div3];
+              
+                for (let j = 0; j < adentro.length; j++) {
+                    div.appendChild(adentro[j]);
+                    //añadir icon
+                    let icon = document.createElement('i');
+                    icon.classList.add('bi');
+                    icon.classList.add('bi-apple');
+                    adentro[j].appendChild(icon);
+                }
+
+            }
+
+            if(i !=29){
+                let icon = document.createElement('i');
+                icon.classList.add('bi');
+                icon.classList.add('bi-apple');
+    
+                div.appendChild(icon);
+
+            }
+            //añadir icon
+
+
+            fater.appendChild(div);
+        }
+    </script>
+</body>
+</html>
